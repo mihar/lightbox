@@ -4,13 +4,21 @@ Lightbox Rails plugin
 Introduction
 ------------
 
-This will add two helpers to make it faster to use Lightbox in Rails.
+This plugin will add two helpers, to make it faster to use Lightbox in Rails.
 
-<%= javascript_include_tag :defaults %>
+Installation
+------------
+
+In order to use Lightbox, you must satisfy it's dependencies first. Lightbox needs it's Javascript file and 
+the default stylesheet in order to function correctly.
+
+Because this plugin embeds the lightbox.js into the defaults, you can simply put this line (if not there already) in the page head:
+
+    <%= javascript_include_tag :defaults %>
 
 You must also include the lightbox stylesheet. Add this to the page head:
 
-<%= stylesheet_link_tag 'lightbox' %>
+    <%= stylesheet_link_tag 'lightbox' %>
 
 
 Usage

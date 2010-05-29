@@ -1,5 +1,5 @@
-# Author:: Davide D'Agostino (DAddYE)
-# WebSite:: http://blog.lipsiasoft.com
+# Original author: Davide D'Agostino
+# Forked and improved by: Miha Rebernik
 require 'action_view'
 
 module ActionView
@@ -12,7 +12,8 @@ module ActionView
       end
       module InstanceMethods
         def lightbox_image_tag(source, destination, image_options = {}, html_options = {})
-          html_options.merge!(:rel => "lightbox") unless html_options[:rel]
+          group = html_options[:group]
+          html_options.merge!(:rel => (group)? "lightbox[#{group}]" : "lightbox") unless html_options[:rel]
           html_options.merge!(:title => "") unless html_options[:title]
           link_to(image_tag(source, image_options), destination, html_options)
         end
